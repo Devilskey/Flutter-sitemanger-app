@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:portfolioapp/main.dart';
+
 Future<void> onLogin(password, username, BuildContext context) async {
   // ignore: non_constant_identifier_names
   final Response = await http.post(
@@ -17,10 +19,13 @@ Future<void> onLogin(password, username, BuildContext context) async {
     }),
   );
   int statusCode = Response.statusCode.toInt();
-  log(statusCode.toString());
 
-  if (statusCode == 200) {
-    // ignore: use_build_context_synchronously
+  if (Response.body != "" && statusCode == 200) {
+    if (Response.body == "no Access granted") return;
+    token = Response.body;
     context.go('/home');
+  } else {
+    // ignore: prefer_interpolation_to_compose_strings
+    log("no connection" + Response.statusCode.toString());
   }
 }

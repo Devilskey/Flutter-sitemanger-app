@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'router_handler.dart';
 
+String token = "";
+
 void main() {
   runApp(const MyApp());
 }

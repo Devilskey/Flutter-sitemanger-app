@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../ApiHandler/post_manager.dart';
 
@@ -19,6 +20,11 @@ class AddPostScreenWidget extends State<AddPostScreen> {
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+            child: ElevatedButton(
+                onPressed: () => {context.go('/post')},
+                child: const Text("back"))),
         Padding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
             child: TextField(
