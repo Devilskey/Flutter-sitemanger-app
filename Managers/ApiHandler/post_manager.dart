@@ -5,12 +5,12 @@ import 'package:portfolioapp/main.dart';
 import 'dart:convert';
 import 'dart:developer';
 
-import '../Objects/post_object.dart';
+import '../../Objects/post_object.dart';
 
 Future<void> createNewPost(title, content, BuildContext context) async {
   // ignore: non_constant_identifier_names
   final Response = await http.post(
-    Uri.parse('http://10.0.2.2:5244/PostManager'),
+    Uri.parse('http://212.227.171.244:5244/PostManager'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -33,7 +33,7 @@ Future<void> createNewPost(title, content, BuildContext context) async {
 Future<void> deletePostById(int postId) async {
   // ignore: non_constant_identifier_names
   final Response =
-      await http.delete(Uri.parse('http://10.0.2.2:5244/PostManager'),
+      await http.delete(Uri.parse('http://212.227.171.244:5244/PostManager'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },
@@ -48,7 +48,8 @@ Future<void> deletePostById(int postId) async {
 
 Future<List<Post>> getPostTitles() async {
   // ignore: non_constant_identifier_names
-  final Response = await http.get(Uri.parse('http://10.0.2.2:5244/PostMenu'));
+  final Response =
+      await http.get(Uri.parse('http://212.227.171.244:5244/PostMenu'));
   int statusCode = Response.statusCode.toInt();
   List<Post> postList = <Post>[];
   if (statusCode == 200) {

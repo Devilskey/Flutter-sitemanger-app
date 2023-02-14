@@ -9,7 +9,7 @@ import 'package:portfolioapp/main.dart';
 Future<void> onLogin(password, username, BuildContext context) async {
   // ignore: non_constant_identifier_names
   final Response = await http.post(
-    Uri.parse('http://10.0.2.2:5244/AppLogin'),
+    Uri.parse('http://212.227.171.244:5244/AppLogin'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -23,6 +23,7 @@ Future<void> onLogin(password, username, BuildContext context) async {
   if (Response.body != "" && statusCode == 200) {
     if (Response.body == "no Access granted") return;
     token = Response.body;
+    // ignore: use_build_context_synchronously
     context.go('/home');
   } else {
     // ignore: prefer_interpolation_to_compose_strings

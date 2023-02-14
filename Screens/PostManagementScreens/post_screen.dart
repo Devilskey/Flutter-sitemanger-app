@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../ApiHandler/post_manager.dart';
+import '../../Managers/ApiHandler/post_manager.dart';
 import '../../Objects/post_object.dart';
 
 class PostScreen extends StatefulWidget {
@@ -65,7 +65,7 @@ class PostScreenWidget extends State<PostScreen> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 20, 20, 0),
                       child: SizedBox(
-                          width: 275, //width of button
+                          width: 250, //width of button
                           child: ElevatedButton(
                               onPressed: () => context.go("/postadd"),
                               child: const Text("Create new post"))),
@@ -80,7 +80,7 @@ class PostScreenWidget extends State<PostScreen> {
                           itemBuilder: (context, index) {
                             log(postList.elementAt(index).postTitle);
                             return Row(children: [
-                              Text("${postList.elementAt(index).postTitle}"),
+                              Text(postList.elementAt(index).postTitle),
                               const Expanded(child: SizedBox()),
                               SizedBox(
                                   child: ElevatedButton(

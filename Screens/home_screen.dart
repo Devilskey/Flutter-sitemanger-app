@@ -16,25 +16,20 @@ class HomeScreenWidget extends State<HomeScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-                height: 150, //height of button
-                width: 150, //width of button
-                child: ElevatedButton(
-                  onPressed: () => context.go("/post"),
-                  child: const Text('hi'),
-                )),
-            SizedBox(
-                height: 150, //height of button
-                width: 150, //width of button
-                child: ElevatedButton(
-                  onPressed: () => {},
-                  child: const Text('hi'),
-                )),
-          ],
-        )
+        SizedBox(
+            height: 150, //height of button
+            width: 380, //width of button
+            child: ElevatedButton(
+              onPressed: () => context.go("/post"),
+              child: const Text('CreateNewPost'),
+            )),
+        SizedBox(
+            height: 150, //height of button
+            width: 380, //width of button
+            child: ElevatedButton(
+              onPressed: () => {},
+              child: const Text('hi'),
+            )),
       ],
     ));
   }
